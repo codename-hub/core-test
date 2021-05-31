@@ -1,5 +1,5 @@
 <?php
-namespace codename\test;
+namespace codename\core\test;
 
 /**
  * Modified DbDoc class

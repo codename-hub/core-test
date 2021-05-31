@@ -1,5 +1,5 @@
 {
-    "name": "codename/test",
+    "name": "codename/core-test",
     "description": "This is core framework unittest support package",
     "type": "library",
     "keywords": ["codename", "core", "framework", "unittest", "test"],
@@ -16,7 +16,7 @@
     },
     "autoload": {
       "psr-4": {
-        "codename\\test\\": "src/"
+        "codename\\core\\test\\": "src/"
       }
     }
 }

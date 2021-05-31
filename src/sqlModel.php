@@ -1,5 +1,5 @@
 <?php
-namespace codename\test;
+namespace codename\core\test;
 
 /**
  * SQL Base model leveraging the new model servicing modules
