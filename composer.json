@@ -1,0 +1,22 @@
+{
+    "name": "codename/test",
+    "description": "This is core framework unittest support package",
+    "type": "library",
+    "keywords": ["codename", "core", "framework", "unittest", "test"],
+    "authors": [
+        {
+            "name": "Kevin Dargel",
+            "role": "Software Developer"
+        }
+    ],
+    "require" : {
+      "codename/core": "*",
+      "codename/architect" : "*",
+      "phpunit/phpunit" : "^9.0"
+    },
+    "autoload": {
+      "psr-4": {
+        "codename\\test\\": "src/"
+      }
+    }
+}
