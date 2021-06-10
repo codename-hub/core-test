@@ -138,6 +138,14 @@ class overrideableApp extends \codename\core\app {
   }
 
   /**
+   * Returns the current, full-fledged environment config
+   * @return \codename\core\config
+   */
+  public static function __getEnvironmentConfig(): \codename\core\config {
+    return static::$environment;
+  }
+
+  /**
    * [__overrideJsonConfigPath description]
    * @param  string $path [description]
    */
