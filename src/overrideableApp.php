@@ -106,33 +106,25 @@ class overrideableApp extends \codename\core\app {
    * @return void
    */
   public static function __modifyAppstackEntry(string $vendor, string $app, ?array $newData, bool $replace = false): void {
-    $index = null;
     $stack = static::$appstack->get();
-    foreach($stack as $i => $appstackEntry) {
+    $newStack = [];
+    foreach($stack as $appstackEntry) {
       if(($appstackEntry['vendor'] == $vendor) && ($appstackEntry['app'] == $app)) {
-        $index = $i;
-        break;
-      }
-    }
-    if($index !== null) {
-      if($newData === null) {
-        array_splice($stack, $index, 1);
-      } else {
-        if($replace) {
-          $stack[$index] = $newData;
+        if($newData) {
+          if($replace) {
+            $newStack[] = $newData;
+          } else {
+            $newStack[] = array_merge($appstackEntry, $newData);
+          }
         } else {
-          $stack[$index] = array_merge($stack[$index], $newData);
+          // omit.
         }
+      } else {
+        $newStack[] = $appstackEntry;
       }
-
-      // replace stack
-      self::$appstack = new \codename\core\value\structure\appstack($stack);
-    } else {
-      // not found, error?
-      // print_r(static::$appstack);
-      // die();
-      // throw new \Exception('__modifyInjectedApp failed');
     }
+    // replace stack
+    self::$appstack = new \codename\core\value\structure\appstack($stack);
   }
 
   /**
