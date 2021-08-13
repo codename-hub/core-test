@@ -124,7 +124,7 @@ class overrideableApp extends \codename\core\app {
       }
     }
     // replace stack
-    self::$appstack = new \codename\core\value\structure\appstack($stack);
+    self::$appstack = new \codename\core\value\structure\appstack($newStack);
   }
 
   /**
