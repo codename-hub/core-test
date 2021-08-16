@@ -12,6 +12,10 @@ class overrideableApp extends \codename\core\app {
    */
   public function __CONSTRUCT()
   {
+    // Prevent custom shutdown handler registration
+    // as it causes bugs when using process isolation using PHPUnit
+    $this->registerShutdownHandler = false;
+    
     parent::__CONSTRUCT();
 
     // TODO
