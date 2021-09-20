@@ -27,6 +27,33 @@ class overrideableApp extends \codename\core\app {
 
     // prevent real exit
     static::$exitCode = null;
+    static::__setShouldThrowException(); // by default: true
+  }
+
+  /**
+   * [__setShouldThrowException description]
+   * @param bool|null $state  [description]
+   */
+  public static function __setShouldThrowException(?bool $state = true): void {
+    static::$__shouldThrowExceptionState = $state;
+  }
+
+  /**
+   * state override for ::shouldThrowException
+   * @var bool|null
+   */
+  protected static $__shouldThrowExceptionState = null;
+
+  /**
+   * @inheritDoc
+   */
+  protected static function shouldThrowException(): bool
+  {
+    if(static::$__shouldThrowExceptionState === null) {
+      return parent::shouldThrowException();
+    } else {
+      return static::$__shouldThrowExceptionState;
+    }
   }
 
   /**
