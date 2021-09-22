@@ -15,7 +15,7 @@ class overrideableApp extends \codename\core\app {
     // Prevent custom shutdown handler registration
     // as it causes bugs when using process isolation using PHPUnit
     $this->registerShutdownHandler = false;
-    
+
     parent::__CONSTRUCT();
 
     // TODO
@@ -60,6 +60,9 @@ class overrideableApp extends \codename\core\app {
    * resets the app instance
    */
   public static function reset(): void {
+    static::$config = null; // reset (app) config
+    static::$environment = null; // reset (env) config
+    // static::$hook // We do not reset this to keep unittest-related global hooks alive
     static::$app = null;
     static::$vendor = null;
     static::$namespace = null;
