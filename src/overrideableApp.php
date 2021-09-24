@@ -70,6 +70,7 @@ class overrideableApp extends \codename\core\app {
     // static::$instances = [];
     static::$instance = null;
     static::$appstack = null;
+    static::$validatorCacheArray = [];
     $_REQUEST['instances'] = [];
   }
 
