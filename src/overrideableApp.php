@@ -125,11 +125,16 @@ class overrideableApp extends \codename\core\app {
 
   /**
    * [__injectApp description]
-   * @param  array  $injectApp [description]
+   * @param  array    $injectApp
+   * @param  int|null $injectionMode
    * @return void
    */
-  public static function __injectApp(array $injectApp): void {
-    static::injectApp($injectApp);
+  public static function __injectApp(array $injectApp, ?int $injectionMode = null): void {
+    if($injectionMode === null) {
+      static::injectApp($injectApp);
+    } else {
+      static::injectApp($injectApp, $injectionMode);
+    }
   }
 
   /**
