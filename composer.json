@@ -1,22 +1,30 @@
 {
-    "name": "codename/core-test",
-    "description": "This is core framework unittest support package",
-    "type": "library",
-    "keywords": ["codename", "core", "framework", "unittest", "test"],
-    "authors": [
-        {
-            "name": "Kevin Dargel",
-            "role": "Software Developer"
-        }
-    ],
-    "require" : {
-      "codename/core": "*",
-      "codename/architect" : "*",
-      "phpunit/phpunit" : "^9.0"
-    },
-    "autoload": {
-      "psr-4": {
-        "codename\\core\\test\\": "src/"
-      }
+  "name": "codename/core-test",
+  "description": "This is core framework unittest support package",
+  "type": "library",
+  "keywords": [
+    "codename",
+    "core",
+    "framework",
+    "unittest",
+    "test"
+  ],
+  "authors": [
+    {
+      "name": "Kevin Dargel",
+      "role": "Software Developer"
     }
+  ],
+  "require": {
+    "codename/core": "*",
+    "codename/architect": "*",
+    "friendsofphp/php-cs-fixer": "^3.15",
+    "phpunit/phpunit": "^10.0",
+    "vimeo/psalm": "^5.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "codename\\core\\test\\": "src/"
+    }
+  }
 }
